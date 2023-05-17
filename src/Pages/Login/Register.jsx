@@ -33,7 +33,7 @@ const Register = () => {
       });
   };
   return (
-    <div className="hero min-h-screen  px-4 lg:px-28">
+    <div className="hero min-h-screen  px-4 lg:px-28 py-10">
       <div className="hero-content flex-col lg:flex-row">
         <div className="text-center lg:text-left">
           <img
