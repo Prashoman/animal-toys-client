@@ -64,7 +64,7 @@ const Header = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 px-4 lg:px-28">
+    <div className="navbar  bg-slate-50 py-7 px-4 lg:px-28">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -110,13 +110,16 @@ const Header = () => {
               />
             </Tooltip>
 
-            <button onClick={handleLogOut} className="btn btn-success ms-3">
+            <button
+              onClick={handleLogOut}
+              className="btn btn-success text-white ms-3"
+            >
               Logout
             </button>
           </>
         ) : (
           <>
-            <button className="btn btn-success">
+            <button className="btn btn-success text-white">
               <Link to="/login">Login</Link>
             </button>
           </>
