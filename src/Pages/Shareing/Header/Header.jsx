@@ -1,6 +1,19 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../provider/AuthProvider";
+import { Tooltip } from "@mui/material";
 
 const Header = () => {
+  const { user, loggedOut } = useContext(AuthContext);
+  const handleLogOut = () => {
+    loggedOut()
+      .then((result) => {
+        console.log("logged Out");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   const items = (
     <>
       <li>
@@ -20,22 +33,26 @@ const Header = () => {
           All Toys
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          to="/myToys"
-          className={({ isActive }) => (isActive ? "active" : "")}
-        >
-          My Toys
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          to="/addToys"
-          className={({ isActive }) => (isActive ? "active" : "")}
-        >
-          Add A Toy
-        </NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink
+              to="/myToys"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              My Toys
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/addToys"
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              Add A Toy
+            </NavLink>
+          </li>
+        </>
+      )}
       <li>
         <NavLink
           to="/blogs"
@@ -83,9 +100,27 @@ const Header = () => {
         <ul className="menu menu-horizontal px-1">{items}</ul>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-success">
-          <Link to="/login">Login</Link>
-        </button>
+        {user ? (
+          <>
+            <Tooltip title={user.displayName}>
+              <img
+                src={user.photoURL}
+                className="rounded-full w-245 h-10"
+                alt=""
+              />
+            </Tooltip>
+
+            <button onClick={handleLogOut} className="btn btn-success ms-3">
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <button className="btn btn-success">
+              <Link to="/login">Login</Link>
+            </button>
+          </>
+        )}
       </div>
     </div>
   );

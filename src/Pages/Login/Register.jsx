@@ -1,7 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Social from "./Social/Social";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+  const { createdUser } = useContext(AuthContext);
+
+  const navigate = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -11,6 +17,20 @@ const Register = () => {
     const photo = form.photo.value;
 
     console.log(name, email, password, photo);
+    createdUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        updateProfile(user, {
+          displayName: name,
+          photoURL: photo,
+        });
+        console.log(user);
+        form.reset();
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <div className="hero min-h-screen  px-4 lg:px-28">

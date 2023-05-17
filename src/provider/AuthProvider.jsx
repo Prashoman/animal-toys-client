@@ -19,15 +19,25 @@ const AuthProvider = ({ children }) => {
 
   //created user
   const createdUser = (email, password) => {
+    setLoading(true);
     return createUserWithEmailAndPassword(auth, email, password);
   };
   //login email and password
   const logInUser = (email, password) => {
+    setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
 
   //loginUser
-
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currenUser) => {
+      setUser(currenUser);
+      setLoading(true);
+    });
+    return () => {
+      unsubscribe();
+    };
+  }, []);
   //google with login
   const logInGoogle = () => {
     return signInWithPopup(auth, googleProvider);
