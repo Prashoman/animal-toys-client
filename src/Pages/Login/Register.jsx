@@ -2,6 +2,16 @@ import { Link } from "react-router-dom";
 import Social from "./Social/Social";
 
 const Register = () => {
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+
+    console.log(name, email, password, photo);
+  };
   return (
     <div className="hero min-h-screen  px-4 lg:px-28">
       <div className="hero-content flex-col lg:flex-row">
@@ -19,47 +29,67 @@ const Register = () => {
             </h1>
             <hr />
 
-            <div className="form-control">
+            <form onSubmit={handleRegister}>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  name="name"
+                  type="text"
+                  placeholder="Name"
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Email</span>
+                </label>
+                <input
+                  name="email"
+                  type="email"
+                  placeholder="email"
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Password</span>
+                </label>
+                <input
+                  name="password"
+                  type="password"
+                  placeholder="password"
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Photo Url</span>
+                </label>
+                <input
+                  name="photo"
+                  type="url"
+                  placeholder="photo url"
+                  className="input input-bordered"
+                />
+              </div>
               <label className="label">
-                <span className="label-text">Name</span>
+                <p>
+                  You have an account? Plz{" "}
+                  <Link to="/login" className="text-blue-600">
+                    Login
+                  </Link>
+                </p>
               </label>
-              <input
-                type="text"
-                placeholder="email"
-                className="input input-bordered"
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Email</span>
-              </label>
-              <input
-                type="text"
-                placeholder="email"
-                className="input input-bordered"
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                type="text"
-                placeholder="password"
-                className="input input-bordered"
-              />
-            </div>
-            <label className="label">
-              <p>
-                You have an account? Plz{" "}
-                <Link to="/login" className="text-blue-600">
-                  Login
-                </Link>
-              </p>
-            </label>
-            <div className="form-control mt-6">
-              <button className="btn btn-primary">SingUp</button>
-            </div>
+              <div className="form-control mt-6">
+                <input
+                  type="submit"
+                  className="btn btn-primary"
+                  value="Register"
+                />
+              </div>
+            </form>
             <div className="divider">OR</div>
             <div className="text-center">
               <Social></Social>

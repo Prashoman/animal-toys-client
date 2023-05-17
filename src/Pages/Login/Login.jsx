@@ -2,6 +2,13 @@ import { Link } from "react-router-dom";
 import Social from "./Social/Social";
 
 const Login = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+  };
   return (
     <div className="hero min-h-screen  px-4 lg:px-28">
       <div className="hero-content flex-col lg:flex-row">
@@ -18,37 +25,45 @@ const Login = () => {
               Login First
             </h1>
             <hr />
-            <div className="form-control">
+            <form onSubmit={handleLogin}>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Email</span>
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="email"
+                  className="input input-bordered"
+                />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Password</span>
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="password"
+                  className="input input-bordered"
+                />
+              </div>
               <label className="label">
-                <span className="label-text">Email</span>
+                <p>
+                  You have do not account? Plz{" "}
+                  <Link to="/register" className="text-blue-600">
+                    Register
+                  </Link>
+                </p>
               </label>
-              <input
-                type="text"
-                placeholder="email"
-                className="input input-bordered"
-              />
-            </div>
-            <div className="form-control">
-              <label className="label">
-                <span className="label-text">Password</span>
-              </label>
-              <input
-                type="text"
-                placeholder="password"
-                className="input input-bordered"
-              />
-            </div>
-            <label className="label">
-              <p>
-                You have do not account? Plz{" "}
-                <Link to="/register" className="text-blue-600">
-                  Register
-                </Link>
-              </p>
-            </label>
-            <div className="form-control mt-6">
-              <button className="btn btn-primary">Login</button>
-            </div>
+              <div className="form-control mt-6">
+                <input
+                  className="btn btn-primary"
+                  type="submit"
+                  value="Login"
+                />
+              </div>
+            </form>
             <div className="divider">OR</div>
             <div className="text-center">
               <Social></Social>
