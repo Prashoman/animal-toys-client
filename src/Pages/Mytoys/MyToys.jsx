@@ -17,7 +17,7 @@ const MyToys = () => {
   }, [url]);
 
   return (
-    <div className="px-28">
+    <div className="px-4 lg:px-28">
       <div>
         <h1 className="text-center font-sans text-4xl mb-11 font-bold text-orange-500">
           My Toys
