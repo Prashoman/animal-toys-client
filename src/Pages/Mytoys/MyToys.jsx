@@ -7,8 +7,9 @@ import "sweetalert2/dist/sweetalert2.min.css";
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
+  const [sort, setSort] = useState("");
 
-  const url = `http://localhost:5000/myToys?email=${user?.email}`;
+  const url = `http://localhost:5000/myToys?email=${user?.email}&price=${sort}`;
 
   useEffect(() => {
     fetch(url)
@@ -61,7 +62,7 @@ const MyToys = () => {
           </label>
           <select
             className="w-64 border border-gray-600 rounded-sm px-3 h-10"
-            name="sorted"
+            onChange={(e) => setSort(e.target.value)}
           >
             <option value="all">All</option>
             <option value="ascending ">Ascending </option>

@@ -1,15 +1,61 @@
 import { useLoaderData } from "react-router-dom";
 import ToysRow from "./ToysRow";
+import { FaSearch } from "react-icons/fa";
+import { useEffect, useState } from "react";
 
 const AllToys = () => {
+  const [search, setSearch] = useState("");
+  const [toysAll, setToysAll] = useState([]);
   const allToys = useLoaderData();
-  console.log(allToys);
+  useEffect(() => {
+    if (allToys) {
+      setToysAll(allToys);
+    }
+  }, []);
+  let url = "";
+  if (search) {
+    url = `http://localhost:5000/getToys/${search}`;
+  } else {
+    url = "http://localhost:5000/allToys";
+  }
+
+  // const handleSearch = () => {
+  //   fetch(`http://localhost:5000/getToys/${search}`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setToysAll(data);
+  //     });
+  // };
+  //console.log(toysAll);
+
+  //console.log(search);
+
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setToysAll(data);
+      });
+  }, [search]);
   return (
     <div className="space-y-7 py-7 px-4 lg:px-28">
       <div>
         <h1 className="text-4xl font-sans font-bold text-orange-500 text-center">
           All Toys
         </h1>
+
+        <div className="flex justify-center items-center my-5">
+          <input
+            type="text"
+            onChange={(e) => setSearch(e.target.value)}
+            className="w-80 h-10 border px-4 border-gray-500 rounded-lg"
+            placeholder="search by toy name"
+          />
+          <button className="ms-2">
+            {" "}
+            <FaSearch className="w-10 h-8"></FaSearch>
+          </button>
+        </div>
       </div>
       <div>
         <div className="overflow-x-auto">
@@ -27,7 +73,7 @@ const AllToys = () => {
               </tr>
             </thead>
             <tbody>
-              {allToys?.map((toy, index) => (
+              {toysAll?.map((toy, index) => (
                 <ToysRow key={toy._id} allToys={toy} id={index}></ToysRow>
               ))}
             </tbody>
