@@ -2,7 +2,7 @@ import { FaEdit } from "react-icons/fa";
 import { HiX } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
-const MyToyRow = ({ toys, index }) => {
+const MyToyRow = ({ toys, index, handleDelete }) => {
   const { _id, name, photo, toyName, category, price, quantity } = toys || {};
   return (
     <tr>
@@ -20,7 +20,10 @@ const MyToyRow = ({ toys, index }) => {
             <FaEdit></FaEdit>
           </Link>
         </button>
-        <button className="btn btn-sm btn-danger ms-3">
+        <button
+          onClick={() => handleDelete(_id)}
+          className="btn btn-sm btn-danger ms-3"
+        >
           <HiX></HiX>
         </button>
       </th>
