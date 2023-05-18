@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
+import useTittle from "../../useHooks/useTitle";
 
 const ToyUpdate = () => {
   const [disable, setDisable] = useState(false);
@@ -8,6 +9,7 @@ const ToyUpdate = () => {
   const handleFoucs = () => {
     setDisable(true);
   };
+  useTittle("Update  a Toy");
   const toy = useLoaderData();
   const { _id, details, photo, toyName, category, price, quantity } = toy || {};
   //   console.log(toy);

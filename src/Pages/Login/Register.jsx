@@ -1,11 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
 import Social from "./Social/Social";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { updateProfile } from "firebase/auth";
+import { toast } from "react-toastify";
+import useTittle from "../../useHooks/useTitle";
 
 const Register = () => {
+  const [error, setError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
   const { createdUser } = useContext(AuthContext);
+
+  useTittle("singUp");
 
   const navigate = useNavigate();
   const handleRegister = (e) => {
@@ -15,22 +22,41 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const photo = form.photo.value;
+    setEmailError("");
+    setPasswordError("");
+    setError("");
+    if (email == "") {
+      setEmailError("Email field is empty");
+    }
 
-    console.log(name, email, password, photo);
-    createdUser(email, password)
-      .then((result) => {
-        const user = result.user;
-        updateProfile(user, {
-          displayName: name,
-          photoURL: photo,
+    if (password.length == 0) {
+      setPasswordError("Password field is empty");
+    } else if (password.length < 6) {
+      setPasswordError(" Password at least 6 characters");
+    }
+
+    //console.log(name, email, password, photo);
+    if (email && password.length >= 6) {
+      createdUser(email, password)
+        .then((result) => {
+          const user = result.user;
+          updateProfile(user, {
+            displayName: name,
+            photoURL: photo,
+          });
+          //console.log(user);
+          form.reset();
+          toast.success("Login Successfully");
+          navigate("/");
+        })
+        .catch((error) => {
+          const massage = error.message;
+          if (massage) {
+            setError("This Email Already Exit");
+          }
+          //console.log(error);
         });
-        console.log(user);
-        form.reset();
-        navigate("/");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    }
   };
   return (
     <div className="hero min-h-screen  px-4 lg:px-28 py-10">
@@ -48,6 +74,17 @@ const Register = () => {
               Register First
             </h1>
             <hr />
+            <div className="px-12 mb-3 w-full h-auto">
+              <p className="text-red-600 text-xl font-sans font-semibold">
+                {error}
+              </p>
+              <p className="text-red-600 text-xl font-sans font-semibold">
+                {emailError}
+              </p>
+              <p className="text-red-600 text-xl font-sans font-semibold">
+                {passwordError}
+              </p>
+            </div>
 
             <form onSubmit={handleRegister}>
               <div className="form-control">

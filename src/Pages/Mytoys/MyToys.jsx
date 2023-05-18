@@ -3,11 +3,14 @@ import { AuthContext } from "../../provider/AuthProvider";
 import MyToyRow from "./MyToyRow";
 import Swal from "sweetalert2";
 import "sweetalert2/dist/sweetalert2.min.css";
+import useTittle from "../../useHooks/useTitle";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
   const [sort, setSort] = useState("");
+
+  useTittle("My Toys");
 
   const url = `http://localhost:5000/myToys?email=${user?.email}&price=${sort}`;
 
@@ -61,7 +64,7 @@ const MyToys = () => {
             Sorted By Price:
           </label>
           <select
-            className="w-64 border border-gray-600 rounded-sm px-3 h-10"
+            className="lg:w-64 border border-gray-600 rounded-sm px-3 h-10"
             onChange={(e) => setSort(e.target.value)}
           >
             <option value="all">All</option>

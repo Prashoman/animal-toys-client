@@ -1,10 +1,13 @@
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { useLoaderData } from "react-router-dom";
+import useTittle from "../../useHooks/useTitle";
 
 const ToyDetails = () => {
   const singleToy = useLoaderData();
-  console.log(singleToy);
+
+  useTittle("Details");
+  //console.log(singleToy);
   const {
     name,
     email,
@@ -20,7 +23,7 @@ const ToyDetails = () => {
     <div className="px-4 lg:px-28 py-10">
       <div className="card w-full bg-base-100 shadow-xl lg:px-4 py-14">
         <figure>
-          <img className="w-full h-full" src={photo} alt="Shoes" />
+          <img className="w-full h-96" src={photo} alt="Shoes" />
         </figure>
         <div className="card-body">
           <div className="flex justify-start items-center">

@@ -2,11 +2,14 @@ import { useLoaderData } from "react-router-dom";
 import ToysRow from "./ToysRow";
 import { FaSearch } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import useTittle from "../../useHooks/useTitle";
 
 const AllToys = () => {
   const [search, setSearch] = useState("");
   const [toysAll, setToysAll] = useState([]);
   const allToys = useLoaderData();
+  useTittle("All Toys");
+
   useEffect(() => {
     if (allToys) {
       setToysAll(allToys);

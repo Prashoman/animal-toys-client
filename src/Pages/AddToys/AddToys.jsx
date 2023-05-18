@@ -1,10 +1,13 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { toast } from "react-toastify";
+import useTittle from "../../useHooks/useTitle";
 
 const AddToys = () => {
   const { user } = useContext(AuthContext);
   const [disable, setDisable] = useState(false);
+
+  useTittle("Add a Toy");
 
   const handleFoucs = () => {
     setDisable(true);

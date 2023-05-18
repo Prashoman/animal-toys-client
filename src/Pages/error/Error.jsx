@@ -1,8 +1,10 @@
 import { Link, useRouteError } from "react-router-dom";
+import useTittle from "../../useHooks/useTitle";
 
 const Error = () => {
   const { error } = useRouteError();
-  console.log(error);
+  //console.log(error);
+  useTittle("error");
   return (
     <section className="flex items-center h-screen p-16 bg-gray-100 text-gray-900">
       <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
