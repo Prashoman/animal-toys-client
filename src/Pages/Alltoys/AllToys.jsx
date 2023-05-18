@@ -1,4 +1,9 @@
+import { useLoaderData } from "react-router-dom";
+import ToysRow from "./ToysRow";
+
 const AllToys = () => {
+  const allToys = useLoaderData();
+  console.log(allToys);
   return (
     <div className="space-y-7 py-7 px-4 lg:px-28">
       <div>
@@ -22,14 +27,9 @@ const AllToys = () => {
               </tr>
             </thead>
             <tbody>
-              {/* row 1 */}
-              <tr>
-                <th>1</th>
-                <td>Cy Ganderton</td>
-                <td>Quality Control Specialist</td>
-                <td>Blue</td>
-              </tr>
-              {/* row 2 */}
+              {allToys?.map((toy, index) => (
+                <ToysRow key={toy._id} allToys={toy} id={index}></ToysRow>
+              ))}
             </tbody>
           </table>
         </div>
