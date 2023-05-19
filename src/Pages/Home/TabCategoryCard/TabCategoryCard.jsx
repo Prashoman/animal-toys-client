@@ -1,17 +1,28 @@
-const TabCategoryCard = ({ toy }) => {
+import { Rating } from "@smastrom/react-rating";
+import { Link } from "react-router-dom";
+const TabCategoryCard = ({ toys }) => {
+  const { _id, photo, toyName, price, rating } = toys || {};
   return (
     <div className="card card-compact w-full bg-base-100 shadow-xl">
       <figure>
-        <img
-          src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-          alt="Shoes"
-        />
+        <img className="w-full h-60" src={photo} alt="Shoes" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">Shoes!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
+        <h2 className="card-title">{toyName}</h2>
+        <div className="flex justify-between items-center">
+          <p className="text-xs   lg:text-xl text-orange-500 font-bold">
+            Price: ${price}
+          </p>
+          <p className="flex items-center">
+            <Rating style={{ maxWidth: 100 }} readOnly value={rating} />
+
+            <span>{rating}</span>
+          </p>
+        </div>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy Now</button>
+          <Link to={`/toy/${_id}`}>
+            <button className="btn btn-success text-white">View Details</button>
+          </Link>
         </div>
       </div>
     </div>

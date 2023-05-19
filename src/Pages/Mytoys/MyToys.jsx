@@ -12,7 +12,7 @@ const MyToys = () => {
 
   useTittle("My Toys");
 
-  const url = `https://animal-toys-server-site.vercel.app/myToys?email=${user?.email}&price=${sort}`;
+  const url = `http://localhost:5000/myToys?email=${user?.email}&price=${sort}`;
 
   useEffect(() => {
     fetch(url)
@@ -33,7 +33,7 @@ const MyToys = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://animal-toys-server-site.vercel.app/toy/${id}`, {
+        fetch(`http://localhost:5000/toy/${id}`, {
           method: "DELETE",
           headers: {
             "Content-type": "application/json",

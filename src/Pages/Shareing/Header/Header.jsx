@@ -92,7 +92,7 @@ const Header = () => {
         </div>
         <div className="flex items-center">
           <img
-            className="w-20 h-12"
+            className="hidden lg:block w-20 h-12"
             src="https://i.ibb.co/vHZdfcz/d9gq-oo09-151115.jpg"
             alt=""
           />

@@ -5,6 +5,7 @@ import TabCategoryCard from "../TabCategoryCard/TabCategoryCard";
 
 const TabCategory = () => {
   const [category, setCategory] = useState("all");
+
   const [toys, setToys] = useState([]);
   useEffect(() => {
     fetch(`http://localhost:5000/toys/${category}`)
@@ -19,7 +20,7 @@ const TabCategory = () => {
   return (
     <div className="px-4 lg:px-28 py-16">
       <div>
-        <h1 className="text-4xl font-sans text-orange-500 text-center font-bold">
+        <h1 className="text-4xl font-sans text-orange-500 text-center font-bold mb-8">
           Categories All Toys
         </h1>
       </div>
@@ -43,35 +44,35 @@ const TabCategory = () => {
         </TabList>
 
         <TabPanel>
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8 py-5">
             {toys.map((toy) => (
               <TabCategoryCard toys={toy} key={toy._id}></TabCategoryCard>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8 py-5">
             {toys.map((toy) => (
               <TabCategoryCard toys={toy} key={toy._id}></TabCategoryCard>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8 py-5">
             {toys.map((toy) => (
               <TabCategoryCard toys={toy} key={toy._id}></TabCategoryCard>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8 py-5">
             {toys.map((toy) => (
               <TabCategoryCard toys={toy} key={toy._id}></TabCategoryCard>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-8 py-5">
             {toys.map((toy) => (
               <TabCategoryCard toys={toy} key={toy._id}></TabCategoryCard>
             ))}

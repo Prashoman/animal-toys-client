@@ -17,13 +17,13 @@ const AllToys = () => {
   }, []);
   let url = "";
   if (search) {
-    url = `https://animal-toys-server-site.vercel.app/getToys/${search}`;
+    url = `http://localhost:5000/getToys/${search}`;
   } else {
-    url = "https://animal-toys-server-site.vercel.app/allToys";
+    url = "http://localhost:5000/allToys";
   }
 
   // const handleSearch = () => {
-  //   fetch(`https://animal-toys-server-site.vercel.app/getToys/${search}`)
+  //   fetch(`http://localhost:5000/getToys/${search}`)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setToysAll(data);
