@@ -1,8 +1,19 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
+
 const Slider = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div className="px-4 lg:px-28 py-10 mt-20">
       <div className="lg:flex justify-between items-center w-full">
-        <div className="lg:w-1/2 px-4 space-y-6">
+        <div
+          className="lg:w-1/2 px-4 space-y-6"
+          data-aos="fade-up"
+          data-aos-anchor-placement="center-bottom"
+        >
           <h1 className="text-4xl font-sans font-bold">
             The ToysDiscover the entire Terra
           </h1>
@@ -19,7 +30,7 @@ const Slider = () => {
             src="https://i.ibb.co/FwmqL2y/play-dough-background-with-octopus.jpg"
             alt=""
           /> */}
-          <div className="carousel w-full">
+          <div className="carousel w-full" data-aos="fade-left">
             <div id="item1" className="carousel-item w-full">
               <img
                 src="https://i.ibb.co/FwmqL2y/play-dough-background-with-octopus.jpg"

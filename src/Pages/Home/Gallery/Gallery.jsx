@@ -6,7 +6,7 @@ const Gallery = () => {
       <div className="text-5xl font-sans font-bold text-orange-500 text-center mb-10">
         Our Gallery
       </div>
-      <div className="grid lg:grid-cols-3 gap-8">
+      <div className="grid lg:grid-cols-3 gap-8" data-aos="zoom-in-left">
         <div>
           <img
             className="w-full h-64 border-8 border-gray-400 transition duration-300 transform hover:scale-90"

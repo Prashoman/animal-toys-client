@@ -44,35 +44,55 @@ const TabCategory = () => {
         </TabList>
 
         <TabPanel>
-          <div className="grid lg:grid-cols-3 gap-8 py-5">
+          <div
+            className="grid lg:grid-cols-3 gap-8 py-5"
+            data-aos="fade-up"
+            data-aos-anchor-placement="top-bottom"
+          >
             {toys.map((toy) => (
               <TabCategoryCard toys={toy} key={toy._id}></TabCategoryCard>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="grid lg:grid-cols-3 gap-8 py-5">
+          <div
+            className="grid lg:grid-cols-3 gap-8 py-5"
+            data-aos="fade-up"
+            data-aos-anchor-placement="top-bottom"
+          >
             {toys.map((toy) => (
               <TabCategoryCard toys={toy} key={toy._id}></TabCategoryCard>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="grid lg:grid-cols-3 gap-8 py-5">
+          <div
+            className="grid lg:grid-cols-3 gap-8 py-5"
+            data-aos="fade-up"
+            data-aos-anchor-placement="top-bottom"
+          >
             {toys.map((toy) => (
               <TabCategoryCard toys={toy} key={toy._id}></TabCategoryCard>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="grid lg:grid-cols-3 gap-8 py-5">
+          <div
+            className="grid lg:grid-cols-3 gap-8 py-5"
+            data-aos="fade-up"
+            data-aos-anchor-placement="top-bottom"
+          >
             {toys.map((toy) => (
               <TabCategoryCard toys={toy} key={toy._id}></TabCategoryCard>
             ))}
           </div>
         </TabPanel>
         <TabPanel>
-          <div className="grid lg:grid-cols-3 gap-8 py-5">
+          <div
+            className="grid lg:grid-cols-3 gap-8 py-5"
+            data-aos="fade-up"
+            data-aos-anchor-placement="top-bottom"
+          >
             {toys.map((toy) => (
               <TabCategoryCard toys={toy} key={toy._id}></TabCategoryCard>
             ))}
