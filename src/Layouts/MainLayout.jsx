@@ -5,7 +5,9 @@ import Footer from "../Pages/Shareing/Footer/Footer";
 const MainLayout = () => {
   return (
     <div>
-      <Header></Header>
+      <div className="mb-32">
+        <Header></Header>
+      </div>
       <Outlet></Outlet>
       <Footer></Footer>
     </div>

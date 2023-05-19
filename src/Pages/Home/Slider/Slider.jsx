@@ -1,14 +1,14 @@
 const Slider = () => {
   return (
-    <div className="px-4 lg:px-28 py-10">
+    <div className="px-4 lg:px-28 py-10 mt-20">
       <div className="lg:flex justify-between items-center w-full">
-        <div className="lg:w-1/2 space-y-6">
+        <div className="lg:w-1/2 px-4 space-y-6">
           <h1 className="text-4xl font-sans font-bold">
             The ToysDiscover the entire Terra
           </h1>
           <p>
-            Dive in to Terra by Battat's fun wild animals! The longhorn bull is
-            a breed of cattle known for its characteristic horns. This realistic
+            Dive in to Terra by Battats fun wild animals! The longhorn bull is a
+            breed of cattle known for its characteristic horns. This realistic
             longhorn bull toy makes a great gift and an ideal goodie bag stuffer
             addition for an animal-themed party.
           </p>

@@ -33,7 +33,7 @@ const ToyUpdate = () => {
       details,
     };
     //console.log(toys);
-    fetch(`http://localhost:5000/toy/${_id}`, {
+    fetch(`https://animal-toys-server-site.vercel.app/toy/${_id}`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",
@@ -50,7 +50,7 @@ const ToyUpdate = () => {
   };
   return (
     <div>
-      <div className="px-4 lg:px-28 py-14">
+      <div className="px-4 lg:px-28 py-14 mt-20">
         <div>
           <h1 className="text-center font-sans text-4xl mb-11 font-bold text-orange-500">
             Update a Toy

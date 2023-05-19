@@ -17,13 +17,13 @@ const AllToys = () => {
   }, []);
   let url = "";
   if (search) {
-    url = `http://localhost:5000/getToys/${search}`;
+    url = `https://animal-toys-server-site.vercel.app/getToys/${search}`;
   } else {
-    url = "http://localhost:5000/allToys";
+    url = "https://animal-toys-server-site.vercel.app/allToys";
   }
 
   // const handleSearch = () => {
-  //   fetch(`http://localhost:5000/getToys/${search}`)
+  //   fetch(`https://animal-toys-server-site.vercel.app/getToys/${search}`)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setToysAll(data);
@@ -41,7 +41,7 @@ const AllToys = () => {
       });
   }, [search]);
   return (
-    <div className="space-y-7 py-7 px-4 lg:px-28">
+    <div className="space-y-7 py-7 px-4 lg:px-28 mt-20">
       <div>
         <h1 className="text-4xl font-sans font-bold text-orange-500 text-center">
           All Toys

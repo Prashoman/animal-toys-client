@@ -20,7 +20,7 @@ const ToyDetails = () => {
     details,
   } = singleToy || {};
   return (
-    <div className="px-4 lg:px-28 py-10">
+    <div className="px-4 lg:px-28 py-10 mt-20">
       <div className="card w-full bg-base-100 shadow-xl lg:px-4 py-14">
         <figure>
           <img className="w-full h-96" src={photo} alt="Shoes" />

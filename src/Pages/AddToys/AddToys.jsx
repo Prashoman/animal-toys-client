@@ -39,7 +39,7 @@ const AddToys = () => {
     };
     console.log(toys);
 
-    fetch("http://localhost:5000/insert/toys", {
+    fetch("https://animal-toys-server-site.vercel.app/insert/toys", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -58,7 +58,7 @@ const AddToys = () => {
   };
 
   return (
-    <div className="px-4 lg:px-28 py-14">
+    <div className="px-4 lg:px-28 py-14 mt-20">
       <div>
         <h1 className="text-center font-sans text-4xl mb-11 font-bold text-orange-500">
           Added a Toys
