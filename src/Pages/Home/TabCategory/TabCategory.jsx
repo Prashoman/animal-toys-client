@@ -8,7 +8,7 @@ const TabCategory = () => {
 
   const [toys, setToys] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/toys/${category}`)
+    fetch(`https://animal-toys-server-site.vercel.app/toys/${category}`)
       .then((res) => res.json())
       .then((data) => {
         setToys(data);

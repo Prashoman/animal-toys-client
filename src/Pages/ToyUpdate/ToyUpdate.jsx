@@ -33,7 +33,7 @@ const ToyUpdate = () => {
       details,
     };
     //console.log(toys);
-    fetch(`http://localhost:5000/toy/${_id}`, {
+    fetch(`https://animal-toys-server-site.vercel.app/toy/${_id}`, {
       method: "PATCH",
       headers: {
         "Content-type": "application/json",
