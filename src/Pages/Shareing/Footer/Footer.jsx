@@ -1,4 +1,5 @@
 import { FaFacebook, FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="footer p-10 bg-base-200 text-base-content px-4 lg:px-28">
@@ -23,18 +24,30 @@ const Footer = () => {
       </div>
       <div>
         <span className="footer-title">Company</span>
-        <a className="link link-hover">Blogs </a>
+        <Link to="/blogs" className="link link-hover">
+          Blogs{" "}
+        </Link>
         <a className="link link-hover">Contact</a>
-        <a className="link link-hover">All Toys</a>
+        <Link to="/allToys" className="link link-hover">
+          All Toys
+        </Link>
         <a className="link link-hover">Press kit</a>
       </div>
       <div>
         <h1 className="footer-title">Contact Us</h1>
         <div className="flex space-x-5">
-          <FaFacebook className="w-10 h-8 cursor-pointer"></FaFacebook>
-          <FaGithub className="w-10 h-8 cursor-pointer"></FaGithub>
-          <FaLinkedinIn className="w-10 h-8 cursor-pointer"></FaLinkedinIn>
-          <FaTwitter className="w-10 h-8 cursor-pointer"></FaTwitter>
+          <a href="https://www.facebook.com/prashmon.chakroborty">
+            <FaFacebook className="w-10 h-8 cursor-pointer"></FaFacebook>
+          </a>
+          <a href="https://github.com/Prashoman">
+            <FaGithub className="w-10 h-8 cursor-pointer"></FaGithub>
+          </a>
+          <a href="https://www.linkedin.com/in/prashoman-chakrabarti-2b827423b/">
+            <FaLinkedinIn className="w-10 h-8 cursor-pointer"></FaLinkedinIn>
+          </a>
+          <a href="https://twitter.com/prashoman">
+            <FaTwitter className="w-10 h-8 cursor-pointer"></FaTwitter>
+          </a>
         </div>
 
         <div>
