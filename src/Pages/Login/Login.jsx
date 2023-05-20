@@ -19,8 +19,9 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
-  // console.log(location.state?.from?.pathname);
-  //console.log(from);
+
+  console.log(location.state?.from?.pathname?.split("/")?.[1]);
+  console.log(from);
   useEffect(() => {
     if (location.state?.from) {
       setToastShow(true);
@@ -29,7 +30,7 @@ const Login = () => {
     }
   }, []);
 
-  if (toastShow) {
+  if (toastShow && location.state?.from?.pathname?.split("/")?.[1] == "toy") {
     console.log("ok");
     Swal.fire({
       icon: "warning",

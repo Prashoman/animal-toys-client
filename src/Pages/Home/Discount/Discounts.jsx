@@ -15,7 +15,7 @@ const Discounts = () => {
           </p>
           <button className="btn btn-success text-white">Shop Now</button>
         </div>
-        <div className="">
+        <div>
           <img
             className="w-54 h-96"
             src="https://i.ibb.co/TgDXGTz/38000.jpg"

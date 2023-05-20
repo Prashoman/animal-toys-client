@@ -5,6 +5,7 @@ import Gallery from "./Gallery/Gallery";
 import Shipping from "./Shipping/Shipping";
 import Slider from "./Slider/Slider";
 import TabCategory from "./TabCategory/TabCategory";
+import ToysBlogs from "./ToysBlogs/ToysBlogs";
 
 const Home = () => {
   useTittle("Home");
@@ -15,6 +16,7 @@ const Home = () => {
       <TabCategory></TabCategory>
       <Discounts></Discounts>
       <Shipping></Shipping>
+      <ToysBlogs></ToysBlogs>
     </div>
   );
 };
