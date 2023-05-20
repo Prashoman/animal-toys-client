@@ -1,6 +1,6 @@
 const Discounts = () => {
   return (
-    <div className="px-4 lg:px-28 bg-blue-50 py-10 mb-10">
+    <div className="px-4 lg:px-28 bg-gray-50 py-10 mb-10">
       <div className="lg:flex justify-between items-center w-full">
         <div className="mb-3 lg:w-1/2 space-y-6">
           <h1 className="text-blue-600 font-bold text-xl">Grab it Facts</h1>
