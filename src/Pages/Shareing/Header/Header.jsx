@@ -111,7 +111,7 @@ const Header = () => {
           <>
             <Tooltip title={user.displayName}>
               <img
-                src={user.photoURL}
+                src={user?.photoURL}
                 className="rounded-full w-245 h-10"
                 alt=""
               />

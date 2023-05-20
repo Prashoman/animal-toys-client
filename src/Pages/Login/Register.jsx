@@ -40,6 +40,8 @@ const Register = () => {
       createdUser(email, password)
         .then((result) => {
           const user = result.user;
+          user.displayName = name;
+          user.photoURL = photo;
           updateProfile(user, {
             displayName: name,
             photoURL: photo,
